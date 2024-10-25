@@ -46,7 +46,7 @@ public class Messages {
     public static String format(Buyer buyer) {
         final StringBuilder builder = new StringBuilder();
         builder.append(buyer.getName())
-                .append("; Phone: ")
+                .append("; LandlordPhone: ")
                 .append(buyer.getPhone())
                 .append("; Email: ")
                 .append(buyer.getEmail())
@@ -80,7 +80,7 @@ public class Messages {
     public static String format(Property property) {
         final StringBuilder builder = new StringBuilder();
         builder.append(property.getName())
-                .append("; Phone: ")
+                .append("; LandlordPhone: ")
                 .append(property.getPhone())
                 .append("; Location: ")
                 .append(property.getLocation())

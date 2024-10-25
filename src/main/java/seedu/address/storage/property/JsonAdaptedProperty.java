@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.property.AskingPrice;
 import seedu.address.model.property.LandlordName;
+import seedu.address.model.property.LandlordPhone;
 import seedu.address.model.property.Location;
-import seedu.address.model.property.Phone;
 import seedu.address.model.property.Property;
 import seedu.address.model.property.PropertyType;
 /**
@@ -17,7 +17,7 @@ public class JsonAdaptedProperty {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Property's %s field is missing!";
 
     private final String name;
-    private final String phone;
+    private final String landlordPhone;
     private final String location;
     private final String askingPrice;
     private final String propertyType;
@@ -27,12 +27,12 @@ public class JsonAdaptedProperty {
      */
     @JsonCreator
     public JsonAdaptedProperty(@JsonProperty("name") String name,
-            @JsonProperty("phone") String phone,
+            @JsonProperty("landlordPhone") String landlordPhone,
             @JsonProperty("location") String location, @JsonProperty("askingPrice") String askingPrice,
             @JsonProperty("propertyType") String propertyType) {
 
         this.name = name;
-        this.phone = phone;
+        this.landlordPhone = landlordPhone;
         this.location = location;
         this.askingPrice = askingPrice;
         this.propertyType = propertyType;
@@ -43,7 +43,7 @@ public class JsonAdaptedProperty {
      */
     public JsonAdaptedProperty(Property source) {
         name = source.getName().toString();
-        phone = source.getPhone().toString();
+        landlordPhone = source.getPhone().toString();
         location = source.getLocation().toString();
         askingPrice = source.getAskingPrice().toString();
         propertyType = source.getPropertyType().toString();
@@ -66,14 +66,14 @@ public class JsonAdaptedProperty {
         }
         final LandlordName modelName = new LandlordName(name);
 
-        if (phone == null) {
+        if (landlordPhone == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    Phone.class.getSimpleName()));
+                    LandlordPhone.class.getSimpleName()));
         }
-        if (!Phone.isValidPhone(phone)) {
-            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+        if (!seedu.address.model.property.LandlordPhone.isValidPhone(landlordPhone)) {
+            throw new IllegalValueException(seedu.address.model.property.LandlordPhone.MESSAGE_CONSTRAINTS);
         }
-        final Phone modelPhone = new Phone(phone);
+        final LandlordPhone modelLandlordPhone = new LandlordPhone(landlordPhone);
 
         if (location == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -102,6 +102,6 @@ public class JsonAdaptedProperty {
         }
         final PropertyType modelpropertyType = new PropertyType(propertyType);
 
-        return new Property(modelName, modelPhone, modelLocation, modelAskingPrice, modelpropertyType);
+        return new Property(modelName, modelLandlordPhone, modelLocation, modelAskingPrice, modelpropertyType);
     }
 }

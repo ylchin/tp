@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 public class PropertyTest {
     @Test
     public void toStringMethod() {
-        String expected = Property.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
+        String expected = Property.class.getCanonicalName() + "{name=" + ALICE.getName()
+                + ", landlordPhone=" + ALICE.getPhone()
                 + ", location=" + ALICE.getLocation() + ", askingPrice=" + ALICE.getAskingPrice()
                 + ", propertyType=" + ALICE.getPropertyType() + "}";
         assertEquals(expected, ALICE.toString());

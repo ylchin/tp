@@ -14,7 +14,7 @@ public class Property {
 
     // Identity fields
     private final LandlordName name;
-    private final Phone phone;
+    private final LandlordPhone landlordPhone;
     private final Location location;
 
     // Data fields
@@ -24,11 +24,11 @@ public class Property {
     /**
      * Every field must be present and not null.
      */
-    public Property(LandlordName name, Phone phone, Location location,
+    public Property(LandlordName name, LandlordPhone landlordPhone, Location location,
                     AskingPrice askingPrice, PropertyType propertyType) {
-        requireAllNonNull(name, phone, location, askingPrice, propertyType);
+        requireAllNonNull(name, landlordPhone, location, askingPrice, propertyType);
         this.name = name;
-        this.phone = phone;
+        this.landlordPhone = landlordPhone;
         this.location = location;
         this.askingPrice = askingPrice;
         this.propertyType = propertyType;
@@ -38,8 +38,8 @@ public class Property {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public LandlordPhone getPhone() {
+        return landlordPhone;
     }
 
     public Location getLocation() {
@@ -86,7 +86,7 @@ public class Property {
 
         Property otherProperty = (Property) other;
         return name.equals(otherProperty.name)
-                && phone.equals(otherProperty.phone)
+                && landlordPhone.equals(otherProperty.landlordPhone)
                 && location.equals(otherProperty.location)
                 && askingPrice.equals(otherProperty.askingPrice)
                 && propertyType.equals(otherProperty.propertyType);
@@ -95,14 +95,14 @@ public class Property {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, location, askingPrice, propertyType);
+        return Objects.hash(name, landlordPhone, location, askingPrice, propertyType);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
-                .add("phone", phone)
+                .add("landlordPhone", landlordPhone)
                 .add("location", location)
                 .add("askingPrice", askingPrice)
                 .add("propertyType", propertyType)

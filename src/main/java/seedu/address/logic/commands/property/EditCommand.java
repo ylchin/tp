@@ -20,8 +20,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.property.AskingPrice;
 import seedu.address.model.property.LandlordName;
+import seedu.address.model.property.LandlordPhone;
 import seedu.address.model.property.Location;
-import seedu.address.model.property.Phone;
 import seedu.address.model.property.Property;
 import seedu.address.model.property.PropertyType;
 
@@ -89,13 +89,13 @@ public class EditCommand extends Command {
         assert propertyToEdit != null;
 
         LandlordName updatedLandlordName = editPropertyDescriptor.getLandlordName().orElse(propertyToEdit.getName());
-        Phone updatedPhone = editPropertyDescriptor.getPhone().orElse(propertyToEdit.getPhone());
+        LandlordPhone updatedLandlordPhone = editPropertyDescriptor.getPhone().orElse(propertyToEdit.getPhone());
         Location updatedLocation = editPropertyDescriptor.getLocation().orElse(propertyToEdit.getLocation());
         AskingPrice updatedAskingPrice = editPropertyDescriptor.getAskingPrice()
                 .orElse(propertyToEdit.getAskingPrice());
         PropertyType updatedPropertyType = editPropertyDescriptor.getType().orElse(propertyToEdit.getPropertyType());
 
-        return new Property(updatedLandlordName, updatedPhone, updatedLocation,
+        return new Property(updatedLandlordName, updatedLandlordPhone, updatedLocation,
                 updatedAskingPrice, updatedPropertyType);
     }
     /**
@@ -104,7 +104,7 @@ public class EditCommand extends Command {
      */
     public static class EditPropertyDescriptor {
         private LandlordName name;
-        private Phone phone;
+        private LandlordPhone landlordPhone;
         private Location location;
         private AskingPrice askingPrice;
         private PropertyType type;
@@ -117,7 +117,7 @@ public class EditCommand extends Command {
          */
         public EditPropertyDescriptor(EditPropertyDescriptor toCopy) {
             setLandlordName(toCopy.name);
-            setPhone(toCopy.phone);
+            setPhone(toCopy.landlordPhone);
             setLocation(toCopy.location);
             setAskingPrice(toCopy.askingPrice);
             setType(toCopy.type);
@@ -127,7 +127,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, location, askingPrice, type);
+            return CollectionUtil.isAnyNonNull(name, landlordPhone, location, askingPrice, type);
         }
 
         // This method should not be used yet.
@@ -139,12 +139,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(name);
         }
 
-        public void setPhone(Phone phone) {
-            this.phone = phone;
+        public void setPhone(LandlordPhone landlordPhone) {
+            this.landlordPhone = landlordPhone;
         }
 
-        public Optional<Phone> getPhone() {
-            return Optional.ofNullable(phone);
+        public Optional<LandlordPhone> getPhone() {
+            return Optional.ofNullable(landlordPhone);
         }
 
         public void setLocation(Location location) {
@@ -186,7 +186,7 @@ public class EditCommand extends Command {
                     (EditPropertyDescriptor) other;
 
             return Objects.equals(name, otherEditPropertyDescriptor.name)
-                    && Objects.equals(phone, otherEditPropertyDescriptor.phone)
+                    && Objects.equals(landlordPhone, otherEditPropertyDescriptor.landlordPhone)
                     && Objects.equals(location, otherEditPropertyDescriptor.location)
                     && Objects.equals(askingPrice, otherEditPropertyDescriptor.askingPrice)
                     && Objects.equals(type, otherEditPropertyDescriptor.type);

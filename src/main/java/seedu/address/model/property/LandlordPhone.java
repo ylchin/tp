@@ -7,20 +7,20 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents a Property's landlord's phone number in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
  */
-public class Phone {
+public class LandlordPhone {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should only contain numbers, and it should be at least 3 digits long";
+            "LandlordPhone numbers should only contain numbers, and it should be at least 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3,}";
     public final String value;
 
     /**
-     * Constructs a {@code Phone}.
+     * Constructs a {@code LandlordPhone}.
      *
      * @param phone A valid phone number.
      */
-    public Phone(String phone) {
+    public LandlordPhone(String phone) {
         requireNonNull(phone);
         checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
         value = phone;
@@ -45,12 +45,12 @@ public class Phone {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Phone)) {
+        if (!(other instanceof LandlordPhone)) {
             return false;
         }
 
-        Phone otherPhone = (Phone) other;
-        return value.equals(otherPhone.value);
+        LandlordPhone otherLandlordPhone = (LandlordPhone) other;
+        return value.equals(otherLandlordPhone.value);
     }
 
     @Override

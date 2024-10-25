@@ -19,6 +19,7 @@ import seedu.address.model.meetup.Name;
 import seedu.address.model.meetup.To;
 import seedu.address.model.property.AskingPrice;
 import seedu.address.model.property.LandlordName;
+import seedu.address.model.property.LandlordPhone;
 import seedu.address.model.property.Location;
 import seedu.address.model.property.PropertyType;
 import seedu.address.model.tag.Tag;
@@ -59,7 +60,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
+     * Parses a {@code String phone} into a {@code LandlordPhone}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code phone} is invalid.
@@ -233,18 +234,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String phone} into a {@code Phone}.
+     * Parses a {@code String phone} into a {@code LandlordPhone}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code Phone} is invalid.
+     * @throws ParseException if the given {@code LandlordPhone} is invalid.
      */
-    public static seedu.address.model.property.Phone parsePropertyPhone(String phone) throws ParseException {
+    public static LandlordPhone parsePropertyPhone(String phone) throws ParseException {
         requireNonNull(phone);
         String trimmedPhone = phone.trim();
-        if (!seedu.address.model.property.Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(seedu.address.model.property.Phone.MESSAGE_CONSTRAINTS);
+        if (!seedu.address.model.property.LandlordPhone.isValidPhone(trimmedPhone)) {
+            throw new ParseException(seedu.address.model.property.LandlordPhone.MESSAGE_CONSTRAINTS);
         }
-        return new seedu.address.model.property.Phone(trimmedPhone);
+        return new LandlordPhone(trimmedPhone);
     }
 
     /**

@@ -18,8 +18,8 @@ import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.property.AskingPrice;
 import seedu.address.model.property.LandlordName;
+import seedu.address.model.property.LandlordPhone;
 import seedu.address.model.property.Location;
-import seedu.address.model.property.Phone;
 import seedu.address.model.property.Property;
 import seedu.address.model.property.PropertyType;
 
@@ -47,12 +47,12 @@ public class AddCommandParser implements Parser<AddCommand> {
                 PREFIX_ASKING_PRICE, PREFIX_TYPE);
 
         LandlordName landlordName = ParserUtil.parseLandlordName(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePropertyPhone(argMultimap.getValue(PREFIX_PHONE).get());
+        LandlordPhone landlordPhone = ParserUtil.parsePropertyPhone(argMultimap.getValue(PREFIX_PHONE).get());
         Location location = ParserUtil.parseLocation(argMultimap.getValue(PREFIX_LOCATION).get());
         AskingPrice askingPrice = ParserUtil.parseAskingPrice(argMultimap.getValue(PREFIX_ASKING_PRICE).get());
         PropertyType propertyType = ParserUtil.parsePropertyType(argMultimap.getValue(PREFIX_TYPE).get());
 
-        Property property = new Property(landlordName, phone, location, askingPrice, propertyType);
+        Property property = new Property(landlordName, landlordPhone, location, askingPrice, propertyType);
         return new AddCommand(property);
     }
 

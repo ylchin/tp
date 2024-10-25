@@ -2,8 +2,8 @@ package seedu.address.testutil.property;
 
 import seedu.address.model.property.AskingPrice;
 import seedu.address.model.property.LandlordName;
+import seedu.address.model.property.LandlordPhone;
 import seedu.address.model.property.Location;
-import seedu.address.model.property.Phone;
 import seedu.address.model.property.Property;
 import seedu.address.model.property.PropertyType;
 
@@ -19,7 +19,7 @@ public class PropertyBuilder {
     public static final String DEFAULT_PROPERTY_TYPE = "HDB";
 
     private LandlordName landlordName;
-    private Phone phone;
+    private LandlordPhone landlordPhone;
     private Location location;
     private PropertyType propertyType;
     private AskingPrice askingPrice;
@@ -29,7 +29,7 @@ public class PropertyBuilder {
      */
     public PropertyBuilder() {
         landlordName = new LandlordName(DEFAULT_LANDLORD_NAME);
-        phone = new Phone(DEFAULT_PHONE);
+        landlordPhone = new LandlordPhone(DEFAULT_PHONE);
         location = new Location(DEFAULT_LOCATION);
         propertyType = new PropertyType(DEFAULT_PROPERTY_TYPE);
         askingPrice = new AskingPrice(DEFAULT_ASKING_PRICE);
@@ -40,7 +40,7 @@ public class PropertyBuilder {
      */
     public PropertyBuilder(Property propertyToCopy) {
         landlordName = propertyToCopy.getName();
-        phone = propertyToCopy.getPhone();
+        landlordPhone = propertyToCopy.getPhone();
         location = propertyToCopy.getLocation();
         askingPrice = propertyToCopy.getAskingPrice();
         propertyType = propertyToCopy.getPropertyType();
@@ -55,10 +55,10 @@ public class PropertyBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Property} that we are building.
+     * Sets the {@code LandlordPhone} of the {@code Property} that we are building.
      */
     public PropertyBuilder withPhone(String phone) {
-        this.phone = new Phone(phone);
+        this.landlordPhone = new LandlordPhone(phone);
         return this;
     }
 
@@ -87,6 +87,6 @@ public class PropertyBuilder {
     }
 
     public Property build() {
-        return new Property(landlordName, phone, location, askingPrice, propertyType);
+        return new Property(landlordName, landlordPhone, location, askingPrice, propertyType);
     }
 }
