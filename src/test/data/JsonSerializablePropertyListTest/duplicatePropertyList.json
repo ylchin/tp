@@ -1,13 +1,13 @@
 {
   "properties": [ {
     "name": "Alice Pauline",
-    "phone": "94351253",
+    "landlordPhone": "94351253",
     "location": "Clementi",
     "askingPrice": "1000000",
     "propertyType": "HDB"
   }, {
     "name": "Alice Pauline",
-    "phone": "9482424",
+    "landlordPhone": "9482424",
     "location": "Clementi",
     "askingPrice": "750000",
     "propertyType": "HDB"
