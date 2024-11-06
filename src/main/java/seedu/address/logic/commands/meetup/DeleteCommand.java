@@ -39,7 +39,11 @@ public class DeleteCommand extends Command {
         List<MeetUp> lastShownList = model.getFilteredMeetUpList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_MEETUP_DISPLAYED_INDEX);
+            if (lastShownList.isEmpty()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_MEETUP_INDEX_NO_BUYERS);
+            }
+            throw new CommandException(String.format(
+                    Messages.MESSAGE_INVALID_MEETUP_DISPLAYED_INDEX, lastShownList.size()));
         }
 
         MeetUp meetUpToDelete = lastShownList.get(targetIndex.getZeroBased());
