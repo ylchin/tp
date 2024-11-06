@@ -23,21 +23,21 @@ public class Messages {
 
     // Buyer
     public static final String MESSAGE_INVALID_BUYER_DISPLAYED_INDEX = "The buyer index provided is invalid! \n"
-            + "Index range: 1 - $1%d";
+            + "Index range: 1 - %1$d";
     public static final String MESSAGE_INVALID_BUYER_INDEX_NO_BUYERS = "The buyer index provided is invalid! \n"
             + "There are no buyers in the list";
     public static final String MESSAGE_BUYERS_LISTED_OVERVIEW = "%1$d buyers listed!";
 
     // MeetUp
     public static final String MESSAGE_INVALID_MEETUP_DISPLAYED_INDEX = "The meetup index provided is invalid! \n"
-            + "Index range: 1 - $1%d";
+            + "Index range: 1 - %1$d";
     public static final String MESSAGE_INVALID_MEETUP_INDEX_NO_BUYERS = "The meetup index provided is invalid! \n"
             + "There are no meetups in the list";
     public static final String MESSAGE_MEETUPS_LISTED_OVERVIEW = "%1$d meet-ups listed!";
 
     // Property
     public static final String MESSAGE_INVALID_PROPERTY_DISPLAYED_INDEX = "The property index provided is invalid \n"
-            + "Index range: 1 - $1%d";
+            + "Index range: 1 - %1$d";
     public static final String MESSAGE_INVALID_PROPERTY_INDEX_NO_BUYERS = "The property index provided is invalid! \n"
             + "There are no properties in the list";
     public static final String MESSAGE_PROPERTIES_LISTED_OVERVIEW = "%1$d properties listed!";
