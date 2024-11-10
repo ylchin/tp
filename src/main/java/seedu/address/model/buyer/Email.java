@@ -20,7 +20,9 @@ public class Email {
             + "The domain name must:\n"
             + "    - end with a domain label at least 2 characters long\n"
             + "    - have each domain label start and end with alphanumeric characters\n"
-            + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.";
+            + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.\n"
+            + "3. Special characters (+_.-) can only be used to separate alphanumeric values"
+            + "and not be put together consecutively.";
     // alphanumeric and special characters
     private static final String ALPHANUMERIC_NO_UNDERSCORE = "[^\\W_]+"; // alphanumeric characters except underscore
     private static final String LOCAL_PART_REGEX = "^" + ALPHANUMERIC_NO_UNDERSCORE + "([" + SPECIAL_CHARACTERS + "]"
